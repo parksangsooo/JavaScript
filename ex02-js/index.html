@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script>
+        let newWin;
+        function openWindow() {
+            newWin = window.open("https://example.com", "newWin", "width=800, height=600, left=100, top=100");
+            if (newWin) {
+                console.log("새 창이 열렸습니다:", newWin);
+            } else {
+                console.log("새 창을 여는 데 실패했습니다.");
+            }
+        }
+
+        function closeWindow() {
+            console.log("닫기 시도 중입니다. newWin:", newWin, "newWin.closed:", newWin ? newWin.closed : "undefined");
+            if (newWin && !newWin.closed) {
+                newWin.close();
+                console.log("새 창이 닫혔습니다.");
+            } else {
+                console.log("닫을 새 창이 없습니다.");
+            }
+        }
+
+        function printInner(){
+            let message = `현재 윈도우 창의 크기는 ${window.innerWidth}`
+                + `x${window.innerHeight}`;
+            alert(message);
+        }
+
+    </script>
+
+</head>
+
+<body>
+<h1>Welcome</h1>
+
+<h3>window 객체</h3>
+<ul>
+    <li><a href="javascript: openWindow();">새 창 열기</a></li>
+    <li><a href="javascript: closeWindow();">열린 창 닫기</a></li>
+    <li><a href="javascript:printInner();">지금 브라우저의 크기는?</a></li>
+</ul>
+</body>
+
+</html>
